@@ -15,6 +15,11 @@ from firebase import firebase
 from keras.applications import *
 from keras.utils import to_categorical
 
+base = mobilenet_v2.MobileNetV2(include_top = False , weights = 'imagenet' ,input_tensor=keras.Input(shape=(100,100, 3)))
+
+for layer in base.layers:
+        layer.trainable = False
+
 def classification_model(base , classes):
 
         model = keras.models.Sequential()
@@ -131,16 +136,9 @@ def index(params):
 
         datagen.fit(X)
 
-        base = mobilenet_v2.MobileNetV2(include_top = False , weights = 'imagenet' ,input_tensor=keras.Input(shape=(100,100, 3)))
-
-        for layer in base.layers:
-            layer.trainable = False
-
-        yield 'Base Model Loaded '
-
         model = classification_model(base , classes)
 
-        model.fit_generator(datagen.flow(X , Y , batch_size = 32) , steps_per_epoch = len(X)//32 , epochs = 1, shuffle = True , verbose=0)
+        #model.fit_generator(datagen.flow(X , Y , batch_size = 32) , steps_per_epoch = len(X)//32 , epochs = 1, shuffle = True , verbose=0)
 
         yield 'Model Trained '
 
