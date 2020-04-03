@@ -12,6 +12,7 @@ import json
 from json import JSONEncoder
 import cv2
 from firebase import firebase
+from keras.applications import *
 from keras.utils import to_categorical
 
 def classification_model(base , classes):
@@ -131,7 +132,10 @@ def index(params):
 
         datagen.fit(X)
 
-        base = keras.models.load_model('base_model.h5')
+        base = mobilenet_v2.MobileNetV2(include_top = False , weights = 'imagenet' ,input_tensor=keras.Input(shape=(100,100, 3)))
+
+        for layer in base.layers:
+            layer.trainable = False
 
         yield 'Base Model Loaded '
 
