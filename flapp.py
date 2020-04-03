@@ -6,7 +6,6 @@ import time
 import os
 import numpy as np
 import keras
-import matplotlib.pyplot as plt
 from random import randint , choice , shuffle
 from keras import backend as K
 import json
