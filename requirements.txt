@@ -1,0 +1,9 @@
+flask==1.0.2
+gunicorn==19.9.0
+Pillow
+numpy
+tensorflow==1.14.0
+keras
+opencv-python
+matplotlib
+git+git://github.com/CkMadhavan/python-firebase
