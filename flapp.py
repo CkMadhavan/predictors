@@ -138,7 +138,7 @@ def index(params):
 
         model = classification_model(base , classes)
 
-        #model.fit_generator(datagen.flow(X , Y , batch_size = 32) , steps_per_epoch = len(X)//32 , epochs = 1, shuffle = True , verbose=0)
+        model.fit_generator(datagen.flow(X , Y , batch_size = 32) , steps_per_epoch = len(X)//32 , epochs = 1, shuffle = True , verbose=0)
 
         yield 'Model Trained '
 
