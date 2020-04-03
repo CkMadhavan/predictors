@@ -5,5 +5,5 @@ numpy
 tensorflow==1.14.0
 keras
 opencv-python
-matplotlib
+opencv-contrib-python
 git+git://github.com/CkMadhavan/python-firebase
