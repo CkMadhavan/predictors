@@ -41,7 +41,6 @@ def index(params):
         start_time = time.time()
     
         firebase_app = firebase.FirebaseApplication('https://predictors-a4804.firebaseio.com', None)
-        yield 'Hi '
 
         yield 'Initialised Firebase App '
 
@@ -148,8 +147,6 @@ def index(params):
         model.save('model_book_bottle_ball.h5')
 
         P = model.get_weights()
-
-        yield 'Model Saving In Firebase '
 
         numpyArrayOne = np.array(P)
 
