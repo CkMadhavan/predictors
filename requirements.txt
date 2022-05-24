@@ -2,7 +2,7 @@ flask==1.0.2
 gunicorn==19.9.0
 Pillow
 numpy
-tensorflow==1.14.0
+tensorflow==2.6.4
 keras
 opencv-python
 opencv-contrib-python
